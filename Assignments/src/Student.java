@@ -77,11 +77,13 @@ class Student
     {
         return SID;
     }
+
     // Set a new name for this person.
     public void setName(String name)
     {
         this.name = name;
     }
+
     // Return the name of this person.
     public String getName()
     {
@@ -89,25 +91,9 @@ class Student
     }
 
     public String calculateGrade() {
-//        double gpa = StudentGPA;
-//        if (gpa == 4.0) return "A";
-//        else if (gpa >= 3.7) return "A-";
-//        else if (gpa >= 3.3) return "B+";
-//        else if (gpa >= 3.0) return "B";
-//        else if (gpa >= 2.7) return "B-";
-//        else if (gpa >= 2.3) return "C+";
-//        else if (gpa >= 2.0) return "C";
-//        else if (gpa >= 1.7) return "C-";
-//        else if (gpa >= 1.3) return "D+";
-//        else if (gpa >= 1.0) return "D";
-//        else if (gpa >= 0.7) return "D-";
-//        else if (gpa >= 0) return "E";
-//        else return "Invalid GPA";
-
-        int[] example = new int[]{0, 1, 2};
-
 
         HashMap<Double, String> map = new HashMap<>();
+
         double gpa = roundToTenth(StudentGPA);
         double[] grades = {4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7, 1.3, 1.0, 0.7, 0};
         String[] letterGrades = {"A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "E"};
@@ -116,8 +102,10 @@ class Student
         return map.get(gpa);
     }
 
-    public double roundToTenth(double numToRound){
-        return Math.round(numToRound * 100.0) / 100.0;
+    public  static double roundToTenth(double numToRound){
+        double rounded =  Math.round(numToRound * 10);
+        rounded  /= 10;
+        return rounded ;
     }
 
     public boolean canDrive(){
@@ -131,5 +119,9 @@ class Student
         return super.toString() +
                 "Student name: "+ name + "\n" +
                 "Student ID: " + SID + "\n";
+    }
+
+    public static void main(String[] args){
+        System.out.println(roundToTenth(2.68));
     }
 }

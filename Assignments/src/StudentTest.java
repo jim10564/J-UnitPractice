@@ -43,7 +43,6 @@ class StudentTest {
 
     @Test
     void setStudentAge() {
-        //Student 1 should be true
         Student student1 = new Student();
         student1.setStudentAge(20);
         assertEquals(20, student1.getStudentAge());
@@ -124,7 +123,7 @@ class StudentTest {
                 },
                 () -> {
                     Student student2 = new Student();
-                    student2.setStudentGPA(3.7);
+                    student2.setStudentGPA(3.72);
                     assertEquals("A-", student2.calculateGrade());
                 },
                 () -> {
